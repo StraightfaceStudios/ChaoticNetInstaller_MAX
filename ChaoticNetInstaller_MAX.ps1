@@ -119,7 +119,7 @@ Write-Host "Setting environment variables for all users..."
 # VRAY_FOR_3DSMAX$year_MAIN
 [System.Environment]::SetEnvironmentVariable(
     ("VRAY_FOR_3DSMAX$($year)_MAIN"), 
-    (Join-Path $destAppPlugins "bin"), 
+    (Join-Path $destAppPluginsVray "bin"), 
     [System.EnvironmentVariableTarget]::Machine
 )
 
@@ -133,7 +133,7 @@ Write-Host "Setting environment variables for all users..."
 # VRAY_FOR_3DSMAX$year_PLUGINS
 [System.Environment]::SetEnvironmentVariable(
     "VRAY_FOR_3DSMAX$($year)_PLUGINS", 
-    (Join-Path (Join-Path $destAppPlugins "bin") "plugins"), 
+    (Join-Path (Join-Path $destAppPluginsVray "bin") "plugins"), 
     [System.EnvironmentVariableTarget]::Machine
 )
 
@@ -147,7 +147,7 @@ Write-Host "Setting environment variables for all users..."
 # VRAY_MDL_PATH_3DSMAX$year
 [System.Environment]::SetEnvironmentVariable(
     "VRAY_MDL_PATH_3DSMAX$($year)", 
-    (Join-Path $destChaos "mdl"), 
+    (Join-Path $destChaosVray "mdl"), 
     [System.EnvironmentVariableTarget]::Machine
 )
 
