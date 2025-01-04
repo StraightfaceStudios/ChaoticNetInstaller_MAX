@@ -77,13 +77,17 @@ if ($copyApps -eq "y") {
 
 # 4) Copy from C:\Program Files\Chaos\V-Ray\3ds Max $year\
 if ($year -gt 2024) {
-    $sourceChaosVray =          "C:\Program Files\Chaos\V-Ray\3ds Max $year"
     $sourceChaosPhoenix =   "C:\Program Files\Chaos\Phoenix FD\3ds Max $year for x64"
 } else {
-    $sourceChaosVray =          "C:\Program Files\Chaos Group\V-Ray\3ds Max $year"
     $sourceChaosPhoenix =   "C:\Program Files\Chaos Group\Phoenix FD\3ds Max $year for x64"
 }
-$destChaosVray   = Join-Path $destinationRoot "3ds Max $year"
+if ($version -gt 6) {
+    $sourceChaosVray =          "C:\Program Files\Chaos\V-Ray\3ds Max $year"
+} else {
+    $sourceChaosVray =          "C:\Program Files\Chaos Group\V-Ray\3ds Max $year"
+}
+
+$destChaosVray   = Join-Path $destinationRoot "Vray 3ds Max $year"
 $destChaosPhoenix   = Join-Path $destinationRoot "Phoenix 3ds Max $year"
 
 if ($copyApps -eq "y") {
